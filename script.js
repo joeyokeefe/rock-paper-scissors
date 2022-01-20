@@ -1,7 +1,9 @@
 const choiceslist = ["rock", "paper", "scissors"];
+var computerScore = 0;
+var playerScore = 0;
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * 3)
+    return Math.floor(Math.random() * max)
     };
 
 function computerplay(){
@@ -14,22 +16,28 @@ const playerInput = prompt('rock, paper, or scissors?: ').toLowerCase();
 function playRound(playerPick){
     let computerPick = computerplay();
     if (computerPick === 'rock' && playerPick === 'paper'){
-        return 'Paper beats rock, you win!'
+        playerScore ++;
+        return 'Paper beats rock, you win!';
     }
     else if (computerPick === 'paper' && playerPick === 'scissors'){
-        return 'Scissors beats paper, you win!'
+        playerScore ++;
+        return 'Scissors beats paper, you win!';
     }
     else if (computerPick === 'scissors' && playerPick === 'rock'){
-        return 'Rock beats scissors, you win!'
+        playerScore ++;
+        return 'Rock beats scissors, you win!';
     }
     else if (computerPick === 'rock' && playerPick === 'scissors'){
-        return 'Rock beats scissors, you lose!'
+        computerScore++;
+        return 'Rock beats scissors, you lose!';
     }
     else if (computerPick === 'paper' && playerPick === 'rock'){
-        return 'Paper beats rock, you lose!'
+        computerScore++;
+        return 'Paper beats rock, you lose!';
     }
     else if (computerPick === 'scissors' && playerPick === 'paper'){
-        return 'Scissors beats paper, you lose!'
+        computerScore ++;
+        return 'Scissors beats paper, you lose!';
     }
     else if (computerPick === 'rock' && playerPick === 'rock'){
         return "It's a tie!"
@@ -45,6 +53,19 @@ function playRound(playerPick){
     }
 };
 
-console.log(playRound(playerInput))
 
+function game(){
+    do{
+        console.log(playRound(playerInput))
+        console.log('Computer Score:' + computerScore)
+        console.log('Player Score:' + playerScore)
+        }while(computerScore < 5, playerScore < 5)
+    }
+    if (computerScore === 5){
+        return "Oh no! You lose!"
+    }
+    if (playerScore === 5){
+        return "Great job! You win!"
+    }
 
+game ();
