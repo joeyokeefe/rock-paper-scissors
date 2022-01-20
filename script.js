@@ -4,49 +4,47 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * 3)
     };
 
-function computerplay(option){
+function computerplay(){
     const choiceNumber = getRandomInt(3);
-    const computerSelection = choiceslist[choiceNumber];
-    return computerSelection;
+    return choiceslist[choiceNumber];
     };
 
-const playerInput = prompt('rock, paper, or scissors?: ');
+const playerInput = prompt('rock, paper, or scissors?: ').toLowerCase();
 
-function playerchoice(option){
-    let playerSelection = playerInput.toLowerCase();
-    return playerSelection;
-    };
-
-function playRound(computerSelection, playerSelection){
-    if (computerSelection === 'rock' && playerSelection === 'paper'){
+function playRound(playerPick){
+    let computerPick = computerplay();
+    if (computerPick === 'rock' && playerPick === 'paper'){
         return 'Paper beats rock, you win!'
     }
-    if (computerSelection === 'paper' && playerSelection === 'scissors'){
+    else if (computerPick === 'paper' && playerPick === 'scissors'){
         return 'Scissors beats paper, you win!'
     }
-    if (computerSelection === 'scissors' && playerSelection === 'rock'){
+    else if (computerPick === 'scissors' && playerPick === 'rock'){
         return 'Rock beats scissors, you win!'
     }
-    if (computerSelection === 'rock' && playerSelection === 'scissors'){
+    else if (computerPick === 'rock' && playerPick === 'scissors'){
         return 'Rock beats scissors, you lose!'
     }
-    if (computerSelection === 'paper' && playerSelection === 'rock'){
+    else if (computerPick === 'paper' && playerPick === 'rock'){
         return 'Paper beats rock, you lose!'
     }
-    if (computerSelection === 'scissors' && playerSelection === 'paper'){
+    else if (computerPick === 'scissors' && playerPick === 'paper'){
         return 'Scissors beats paper, you lose!'
     }
-    if (computerSelection === 'rock' && playerSelection === 'rock'){
+    else if (computerPick === 'rock' && playerPick === 'rock'){
         return "It's a tie!"
     }
-    if (computerSelection === 'paper' && playerSelection === 'paper'){
+    else if (computerPick === 'paper' && playerPick === 'paper'){
         return "It's a tie!"
     }
-    if (computerSelection === 'scissors' && playerSelection === 'scissors'){
+    else if (computerPick === 'scissors' && playerPick === 'scissors'){
         return "It's a tie!"
     }
     else {
         return "Please choose rock, paper, or scissors"
     }
-}
-console.log(playRound());
+};
+
+console.log(playRound(playerInput))
+
+
