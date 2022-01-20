@@ -11,8 +11,6 @@ function computerplay(){
     return choiceslist[choiceNumber];
     };
 
-const playerInput = prompt('rock, paper, or scissors?: ').toLowerCase();
-
 function playRound(playerPick){
     let computerPick = computerplay();
     if (computerPick === 'rock' && playerPick === 'paper'){
@@ -55,17 +53,20 @@ function playRound(playerPick){
 
 
 function game(){
-    do{
-        console.log(playRound(playerInput))
-        console.log('Computer Score:' + computerScore)
-        console.log('Player Score:' + playerScore)
-        }while(computerScore < 5, playerScore < 5)
-    }
+    if (computerScore < 5 && playerScore < 5) {
+        do{
+            var playerInput = prompt('rock, paper, or scissors?: ').toLowerCase();
+            console.log(playRound(playerInput))
+            console.log('Computer Score:' + computerScore)
+            console.log('Player Score:' + playerScore)
+            }while(computerScore < 5 && playerScore < 5) 
+        }
     if (computerScore === 5){
-        return "Oh no! You lose!"
+        console.log("Oh no, you lost the game!")
     }
     if (playerScore === 5){
-        return "Great job! You win!"
+        console.log("Great job, you won the game!")
     }
+}
 
 game ();
