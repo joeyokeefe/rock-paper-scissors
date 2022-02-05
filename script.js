@@ -2,6 +2,15 @@ const choiceslist = ["rock", "paper", "scissors"];
 var computerScore = 0;
 var playerScore = 0;
 
+function returnPlayerChoice(){
+    
+    return document.querySelector(button.textContent());
+}
+
+let playerpick = .addEventListener('click', (returnPlayerChoice));
+
+console.log(playerPick);
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
     };
@@ -55,7 +64,7 @@ function playRound(playerPick){
 function game(){
     if (computerScore < 5 && playerScore < 5) {
         do{
-            var playerInput = prompt('rock, paper, or scissors?: ').toLowerCase();
+            //var playerInput = prompt('rock, paper, or scissors?: ').toLowerCase();
             console.log(playRound(playerInput))
             console.log('Computer Score:' + computerScore)
             console.log('Player Score:' + playerScore)
@@ -70,3 +79,6 @@ function game(){
 }
 
 game ();
+
+
+
