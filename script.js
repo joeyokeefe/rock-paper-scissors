@@ -3,11 +3,10 @@ var computerScore = 0;
 var playerScore = 0;
 
 function returnPlayerChoice(){
-    
     return document.querySelector(button.textContent());
 }
 
-let playerpick = .addEventListener('click', (returnPlayerChoice));
+//let playerpick = .addEventListener('click', (returnPlayerChoice));
 
 console.log(playerPick);
 
