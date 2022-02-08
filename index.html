@@ -8,11 +8,10 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-    <script src="script.js"></script>
     <div class=header>
         <h1>Rock, Paper, Scissors</h1>
     </div>
-    <div class="main">
+    <div class=main>
         <div class=button-container>
             <div class=button>
                 <button id="rockBtn" type="submit"><img src="/images/rock.png" height="120px" 
@@ -31,15 +30,16 @@
             <p style="font-size: 40px">Paper beats rock, you lose!</p>
         </div>
         <div class = scoreboard>
-            <div id= player-score class= score>
+            <div id=player-score class= score>
                 <h1>Player Score</h1>
-                <p style="font-size: 40px">0</p>
+                <p id=player-score-number style="font-size: 40px">0</p>
             </div>
             <div id= computer-score class= score>
                 <h1>Computer Score</h1>
-                <p style="font-size: 40px">0</p>
+                <p id=computer-score-number style="font-size: 40px">0</p>
             </div>
         </div>
     </div>
 </body>
+<script src="script.js"></script>
 </html>
