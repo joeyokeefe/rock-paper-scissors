@@ -2,14 +2,6 @@ const choiceslist = ["rock", "paper", "scissors"];
 var computerScore = 0;
 var playerScore = 0;
 
-function returnPlayerChoice(){
-    return document.querySelector(button.textContent());
-}
-
-//let playerpick = .addEventListener('click', (returnPlayerChoice));
-
-console.log(playerPick);
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
     };
@@ -18,7 +10,7 @@ function computerplay(){
     const choiceNumber = getRandomInt(3);
     return choiceslist[choiceNumber];
     };
-
+/*
 function playRound(playerPick){
     let computerPick = computerplay();
     if (computerPick === 'rock' && playerPick === 'paper'){
@@ -77,7 +69,11 @@ function game(){
     }
 }
 
-game ();
+game ();*/
 
+const rockBtn = document.getElementById('rockBtn');
+const paperBtn = document.getElementById('paperBtn');
+const scissorsBtn = document.getElementById('scissorsBtn');
 
-
+rockBtn.addEventListener('click', function(){ 
+    return 'rock'});
