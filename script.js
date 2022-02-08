@@ -1,6 +1,7 @@
 const choiceslist = ["rock", "paper", "scissors"];
 var computerScore = 0;
 var playerScore = 0;
+let playerPick = '';
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
@@ -10,7 +11,7 @@ function computerplay(){
     const choiceNumber = getRandomInt(3);
     return choiceslist[choiceNumber];
     };
-/*
+
 function playRound(playerPick){
     let computerPick = computerplay();
     if (computerPick === 'rock' && playerPick === 'paper'){
@@ -55,7 +56,7 @@ function playRound(playerPick){
 function game(){
     if (computerScore < 5 && playerScore < 5) {
         do{
-            //var playerInput = prompt('rock, paper, or scissors?: ').toLowerCase();
+            var playerInput = buttonChoice(playerButtons)
             console.log(playRound(playerInput))
             console.log('Computer Score:' + computerScore)
             console.log('Player Score:' + playerScore)
@@ -69,11 +70,20 @@ function game(){
     }
 }
 
-game ();*/
+game ();
 
-const rockBtn = document.getElementById('rockBtn');
+// UI settings
+const playerButtons = document.querySelectorAll('button');
+const rockBtn = document.querySelector('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
 const scissorsBtn = document.getElementById('scissorsBtn');
 
-rockBtn.addEventListener('click', function(){ 
-    return 'rock'});
+function buttonChoice(playerButtons){
+    for (let i=0; i<playerButtons.length; i++){
+        playerButtons[i].addEventListener('click', function(){
+            console.log(playerButtons.textContent());
+            game();
+            return playerButtons[i].textContent()
+        });
+    };
+};

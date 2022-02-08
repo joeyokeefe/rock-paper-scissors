@@ -12,29 +12,34 @@
     <div class=header>
         <h1>Rock, Paper, Scissors</h1>
     </div>
-    <div class="bodyBelowHeader">
-    <div class=button-container>
-        <div class=button>
-            <button id="rockBtn" type="submit"><img src="/images/rock.png" height="120px" 
+    <div class="main">
+        <div class=button-container>
+            <div class=button>
+                <button id="rockBtn" type="submit"><img src="/images/rock.png" height="120px" 
                 width="120px" alt="rock"></button>
-        </div>
-        <div class=button>
-            <button id="paperBtn" type="submit"><img src="/images/paper.png" height="120px" 
+            </div>
+            <div class=button>
+                <button id="paperBtn" type="submit"><img src="/images/paper.png" height="120px" 
                 width="120px" alt="paper"></button>
-        </div>
-        <div class=button>
-            <button id="scissorsBtn" type="submit"><img src="/images/scissors.png" height="120px" 
+            </div>
+            <div class=button>
+                <button id="scissorsBtn" type="submit"><img src="/images/scissors.png" height="120px" 
                 width="120px" alt="scissors"></button>
+            </div>
         </div>
-    </div>
-    <div class = scoreboard>
-        <div class= individualScore>
-            <h1>Player Score</h1>
+        <div class="game-message">
+            <p style="font-size: 40px">Paper beats rock, you lose!</p>
         </div>
-        <div class=individualScore>
-            <h1>Computer Score</h1>
+        <div class = scoreboard>
+            <div id= player-score class= score>
+                <h1>Player Score</h1>
+                <p style="font-size: 40px">0</p>
+            </div>
+            <div id= computer-score class= score>
+                <h1>Computer Score</h1>
+                <p style="font-size: 40px">0</p>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 </html>
