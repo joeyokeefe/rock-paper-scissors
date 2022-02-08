@@ -10,10 +10,6 @@ const playerScore_p = document.getElementById('player-score-number')
 const computerScore_p = document.getElementById('computer-score-number')
 const gameMessage_div = document.querySelector('game-message')
 
-rockBtn.addEventListener('click', function(){
-    console.log('hey!')
-})
-
 //automating computer choice
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
@@ -24,31 +20,43 @@ function computerplay(){
     return choiceslist[choiceNumber];
     };
 
+// adds 1 to player score
+function changePlayerScore(){
+    let playerScore = playerScore_p.value;
+    playerScore ++;
+}
+
+// adds 1 to computer score
+function changeComputerScore(){
+    let computerScore = playerScore_p.value;
+    computerScore ++;
+}
+
 //single round code
 function playRound(playerPick){
     let computerPick = computerplay();
     if (computerPick === 'rock' && playerPick === 'paper'){
-        playerScore ++;
+        changePlayerScore();
         return 'Paper beats rock, you win!';
     }
     else if (computerPick === 'paper' && playerPick === 'scissors'){
-        playerScore ++;
+        changePlayerScore();
         return 'Scissors beats paper, you win!';
     }
     else if (computerPick === 'scissors' && playerPick === 'rock'){
-        playerScore ++;
+        changePlayerScore();
         return 'Rock beats scissors, you win!';
     }
     else if (computerPick === 'rock' && playerPick === 'scissors'){
-        computerScore++;
+        changeComputerScore();
         return 'Rock beats scissors, you lose!';
     }
     else if (computerPick === 'paper' && playerPick === 'rock'){
-        computerScore++;
+        changeComputerScore();
         return 'Paper beats rock, you lose!';
     }
     else if (computerPick === 'scissors' && playerPick === 'paper'){
-        computerScore ++;
+        changeComputerScore();
         return 'Scissors beats paper, you lose!';
     }
     else if (computerPick === 'rock' && playerPick === 'rock'){
@@ -65,12 +73,28 @@ function playRound(playerPick){
     }
 };
 
+//creating user choice through UI
+function buttonChoices() {
+    rockBtn.addEventListener('click', function(){
+        playRound('rock')
+    });
+
+    paperBtn.addEventListener('click', function(){
+        playRound('paper')
+    });
+
+    scissorsBtn.addEventListener('click', function(){
+        playRound('scissors')
+    });
+} 
+
+buttonChoices();
+
 //repeating rounds until one player reaches 5 points
 function game(){
     if (computerScore < 5 && playerScore < 5) {
         do{
-           // var playerInput = buttonChoice(playerButtons)
-            console.log(playRound(playerInput))
+           // var playerInput =
             console.log('Computer Score:' + computerScore)
             console.log('Player Score:' + playerScore)
             }while(computerScore < 5 && playerScore < 5) 
@@ -83,7 +107,9 @@ function game(){
     }
 }
 
-game ();
 
-// UI settings
+
+//game();
+
+
 
