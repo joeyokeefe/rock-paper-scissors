@@ -35,6 +35,7 @@ function changeComputerScore(){
 //single round code
 function playRound(playerPick){
     let computerPick = computerplay();
+    if (computerScore < 5 && playerScore < 5){
     if (computerPick === 'rock' && playerPick === 'paper'){
         changePlayerScore();
         gameMessage_div.innerHTML = 'Paper beats rock, you win!';
@@ -68,13 +69,19 @@ function playRound(playerPick){
     else if (computerPick === 'scissors' && playerPick === 'scissors'){
         gameMessage_div.innerHTML = "It's a tie!"
     }
-    else {
-        return "Please choose rock, paper, or scissors"
+    }
+    else if (playerScore === 5){
+        gameMessage_div.innerHTML = "Great job, you won the game!"
+        return gameover;
+    }
+    else if (computerScore === 5){
+        gameMessage_div.innerHTML = "Game over, you lose!"
+        return gameover;
     }
 };
 
 //creating user choice through UI
-function buttonChoices() {
+function game() {
     rockBtn.addEventListener('click', function(){
         playRound('rock')
     });
@@ -88,13 +95,6 @@ function buttonChoices() {
     });
 } 
 
-function game(){
-    buttonChoices();
-    if (computerScore === 5){
-        gameMessage_div.innerHTML = "Game over, you lose!"
-    }
-    if (playerScore === 5)
-}
-
+game();
 
 //repeating rounds until one player reaches 5 points
