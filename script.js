@@ -8,7 +8,7 @@ const paperBtn = document.getElementById('paperBtn');
 const scissorsBtn = document.getElementById('scissorsBtn');
 const playerScore_p = document.getElementById('player-score-number')
 const computerScore_p = document.getElementById('computer-score-number')
-const gameMessage_div = document.querySelector('game-message')
+const gameMessage_div = document.getElementById('game-message-text')
 
 //automating computer choice
 function getRandomInt(max) {
@@ -22,14 +22,14 @@ function computerplay(){
 
 // adds 1 to player score
 function changePlayerScore(){
-    let playerScore = playerScore_p.value;
     playerScore ++;
+    playerScore_p.innerHTML = playerScore;
 }
 
 // adds 1 to computer score
 function changeComputerScore(){
-    let computerScore = playerScore_p.value;
     computerScore ++;
+    computerScore_p.innerHTML = computerScore;
 }
 
 //single round code
@@ -37,36 +37,36 @@ function playRound(playerPick){
     let computerPick = computerplay();
     if (computerPick === 'rock' && playerPick === 'paper'){
         changePlayerScore();
-        return 'Paper beats rock, you win!';
+        gameMessage_div.innerHTML = 'Paper beats rock, you win!';
     }
     else if (computerPick === 'paper' && playerPick === 'scissors'){
         changePlayerScore();
-        return 'Scissors beats paper, you win!';
+        gameMessage_div.innerHTML = 'Scissors beats paper, you win!';
     }
     else if (computerPick === 'scissors' && playerPick === 'rock'){
         changePlayerScore();
-        return 'Rock beats scissors, you win!';
+        gameMessage_div.innerHTML = 'Rock beats scissors, you win!';
     }
     else if (computerPick === 'rock' && playerPick === 'scissors'){
         changeComputerScore();
-        return 'Rock beats scissors, you lose!';
+        gameMessage_div.innerHTML = 'Rock beats scissors, you lose!';
     }
     else if (computerPick === 'paper' && playerPick === 'rock'){
         changeComputerScore();
-        return 'Paper beats rock, you lose!';
+        gameMessage_div.innerHTML = 'Paper beats rock, you lose!';
     }
     else if (computerPick === 'scissors' && playerPick === 'paper'){
         changeComputerScore();
-        return 'Scissors beats paper, you lose!';
+        gameMessage_div.innerHTML = 'Scissors beats paper, you lose!';
     }
     else if (computerPick === 'rock' && playerPick === 'rock'){
-        return "It's a tie!"
+        gameMessage_div.innerHTML = "It's a tie!"
     }
     else if (computerPick === 'paper' && playerPick === 'paper'){
-        return "It's a tie!"
+        gameMessage_div.innerHTML = "It's a tie!"
     }
     else if (computerPick === 'scissors' && playerPick === 'scissors'){
-        return "It's a tie!"
+        gameMessage_div.innerHTML = "It's a tie!"
     }
     else {
         return "Please choose rock, paper, or scissors"
@@ -88,28 +88,13 @@ function buttonChoices() {
     });
 } 
 
-buttonChoices();
-
-//repeating rounds until one player reaches 5 points
 function game(){
-    if (computerScore < 5 && playerScore < 5) {
-        do{
-           // var playerInput =
-            console.log('Computer Score:' + computerScore)
-            console.log('Player Score:' + playerScore)
-            }while(computerScore < 5 && playerScore < 5) 
-        }
+    buttonChoices();
     if (computerScore === 5){
-        console.log("Oh no, you lost the game!")
+        gameMessage_div.innerHTML = "Game over, you lose!"
     }
-    if (playerScore === 5){
-        console.log("Great job, you won the game!")
-    }
+    if (playerScore === 5)
 }
 
 
-
-//game();
-
-
-
+//repeating rounds until one player reaches 5 points
